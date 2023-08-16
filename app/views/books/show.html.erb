@@ -1,0 +1,7 @@
+<p>Title:<%= @book.title %></p>
+
+<p>Body:<%= @book.body %></p>
+
+<%= form_with model:@book do |f| %>
+ <%= f.submit 'Edit''Back'%>
+<% end %>
