@@ -2,6 +2,4 @@
 
 <p>Body:<%= @book.body %></p>
 
-<%= form_with model:@book do |f| %>
- <%= f.submit 'Edit''Back'%>
-<% end %>
+<%= link_to "Edit", "/books" %><span> | </span><%= link_to "Back", "/books" %>
