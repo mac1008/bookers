@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get 'books' => 'books#new'
   post 'books' => 'books#create'
   get 'books/:id' => 'books#show'
+  get '' => 'books#index'
+  get 'books/:id/edit' => 'books#edit'
+  delete 'books/:id' => 'books#destroy'
 
 end
