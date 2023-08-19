@@ -1,13 +1,21 @@
 <H1>Books</H1>
 
+<table>
+
 <% @books.esch do |book| %>
 
-  <p>Title</p>
-  <span><%= book.title %></span>
+<tr>
+  <th>Title</th>
+  <th>Body</th>
+</tr>
 
-  <p>Body</p>
-  <span><%= book.body %></span>
+<tr>
+  <td><%= book.title %></td>
+  <td><%= book.body %></td>
+</tr>
 
   <%= link_to "Show","books/:id" %><%= link_to "Edit","books/:id/edit" %><%= link_to "Destroy","books/:id",method: :delete,"date-confirm" => "Are you sure?" %>
 
 <% end %>
+
+</table>
