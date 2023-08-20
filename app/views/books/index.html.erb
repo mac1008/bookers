@@ -1,46 +1,70 @@
-<h1>Books</h1>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/195c3a23e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="application.css" />
+    <title>Bookers</title>
 
-<table>
-  <thead>
-    <th>Title</th>
-    <th>Body</th>
-  </thead>
-  <tbody>
-    <% @books.each do |book| %>
+  </head>
 
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td><%= link_to "Show","/books/#{book.id}" %></td>
-        <td><%= link_to "Edit","books/#{book.id}/edit" %></td>
-        <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
-      </tr>
+  <body>
+    <div class="main-page">
 
-    <% end %>
-  </tbody>
-</table>
+      <div class="index-page">
+        <h1>Books</h1>
 
-<div class="new-page">
+        <table class="index">
+          <thead>
+            <th>Title</th>
+            <th>Body</th>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
 
-  <h2>New book</h2>
+              <tr>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+                <td><%= link_to "Show","/books/#{book.id}" %></td>
+                <td><%= link_to "Edit","books/#{book.id}/edit" %></td>
+                <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+              </tr>
 
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>error prohibited this book from being saved:
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-  <%= form_with model:@book do |f| %>
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <p>Body</p>
-    <%= f.text_area :body %>
+      <div class="new-page">
 
-    <%= f.submit 'Create Book' %>
+        <h2>New book</h2>
 
-  <% end %>
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %>error prohibited this book from being saved:
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
-</div>
+        <%= form_with model:@book do |f| %>
+          <p>Title</p>
+          <div class="field">
+          <%= f.text_field :title %>
+          </div>
+          <p>Body</p>
+          <div class="field">
+          <%= f.text_area :body %>
+          </div>
+
+          <%= f.submit 'Create Book' %>
+
+        <% end %>
+
+      </div>
+
+    </div>
+  </body>
+
+</html>

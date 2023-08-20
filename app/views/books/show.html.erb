@@ -1,9 +1,29 @@
-<div class="message">
-  <%= flash[:notice] %>
-</div>
+<!DOCTYPE html>
 
-<p>Title:<%= @book.title %></p>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/195c3a23e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="application.css" />
+    <title>Bookers</title>
 
-<p>Body:<%= @book.body %></p>
+  </head>
 
-<%= link_to "Edit", "#{@book.id}/edit" %><span> | </span><%= link_to "Back", "/books" %>
+  <body>
+    <div class="show-message">
+
+      <div class="message">
+        <%= flash[:notice] %>
+      </div>
+
+      <p class="sub-title"><strong>Title</strong>:<%= @book.title %></p>
+
+      <p class="sub-title"><strong>Body</strong>:<%= @book.body %></p>
+
+      <%= link_to "Edit", "#{@book.id}/edit" %><span> | </span><%= link_to "Back", "/books" %>
+
+    </div>
+  </body>
+
+</html>

@@ -20,13 +20,14 @@
   box-sizing:border-box;
 }
 
-body{
+.top-page{
+  width: 914px;
+  height: 171px;
   margin: 33px;
 }
 
 .top-page h1{
   font-size: 26px;
-  margin: 17.42px 0;
 }
 
 .top-page p{
@@ -34,14 +35,47 @@ body{
   margin: 33px;
 }
 
-top-page strong{
-  font-weight: bold;
+.top-page strong{
+  font-weight: 900;
+}
+
+.index-page h1{
+  font-size: 26px;
+  margin-bottom:17.42px;
+}
+
+.index{
+  font-size: 13px;
+}
+
+.index th{
+  padding:1px 1px 5px;
+}
+
+.index td{
+  padding:1px 5px 7px;
+}
+
+.main-page{
+  margin:33px;
 }
 
 .new-page h2{
   font-size: 19.5px;
+  margin: 16.185px 0;
 }
 
 .new-page p{
   font-size: 13px;
+}
+ .field{
+   margin: 0 0 10px;
+}
+
+.show-message{
+  margin: 33px;
+}
+
+.sub-title{
+  margin: 33px;
 }
