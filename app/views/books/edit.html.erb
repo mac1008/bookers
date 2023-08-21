@@ -1,28 +1,59 @@
-<div class="message">
-  <%= flash[:notice] %>
-</div>
+<!DOCTYPE html>
 
-<h1>Editing Book</h1>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/195c3a23e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="application.css" />
+    <title>Bookers</title>
+  </head>
 
-<% if @book.errors.any? %>
-    <%= @book.errors.count %>error prohibited this book from being saved:
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <body>
+
+    <div class="message">
+      <%= flash[:notice] %>
+    </div>
+
+    <div class="edit-page">
+
+      <h1>Editing Book</h1>
+
+      <% if @book.errors.any? %>
+          <%= @book.errors.count %>error prohibited this book from being saved:
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
       <% end %>
-    </ul>
-<% end %>
 
-<%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+      <div class="update-field">
 
-<p>Title</p>
-<%= f.text_field :title %>
+        <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
 
-<p>Body</p>
-<%= f.text_area :body %>
+        <div class="field">
+        <p>Title</p>
+        <%= f.text_field :title %>
+        </div>
 
-<%= f.submit 'Update Book' %>
+        <div class="field">
+        <p>Body</p>
+        <%= f.text_area :body %>
+        </div>
 
-<% end %>
+        <div class="field">
+        <%= f.submit 'Update Book' %>
+        </div>
 
-<%= link_to "Show", "/books/#{@book.id}" %><span> | </span><%= link_to "Back", "/books" %>
+        <% end %>
+
+        <%= link_to "Show", "/books/#{@book.id}" %><span> | </span><%= link_to "Back", "/books" %>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
